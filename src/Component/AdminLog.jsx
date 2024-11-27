@@ -73,7 +73,7 @@ function AdminLog() {
                     {/* <img src="./public/hrlineimg.png" className="img-fluid d-flex justify-content-center gap-2" alt="..." /> */}
                    <center> <h1>Administration</h1>
                     <p className="lead">Login Page for Administration.</p></center>
-                    <img src="./public/hrlineimg.png" className="img-fluid d-flex justify-content-center gap-2" alt="..." />
+                    <img src="./hrlineimg.png" className="img-fluid d-flex justify-content-center gap-2" alt="..." />
                     <br />
                     <div className="row mb-3">
                         <label htmlFor="inputEmail3" className="col-sm-3 col-form-label">Email</label>
