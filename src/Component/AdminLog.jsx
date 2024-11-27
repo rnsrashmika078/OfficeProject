@@ -69,10 +69,8 @@ function AdminLog() {
             <br />
             <div className="container mb-3" style={{ maxWidth: "500px", border: "1px solid #ccc", padding: "20px", borderRadius: "8px" }}>
                 <form>
-                    {/* <img src="./public/hrlineimg.png" className="img-fluid d-flex justify-content-center gap-2" alt="..." /> */}
                    <center> <h1>Administration</h1>
                     <p className="lead">Login Page for Administration.</p></center>
-                    {/* <img src="./hrlineimg.png" className="img-fluid d-flex justify-content-center gap-2" alt="..." /> */}
                     <br />
                     <div className="row mb-3">
                         <label htmlFor="inputEmail3" className="col-sm-3 col-form-label">Email</label>
