@@ -31,9 +31,6 @@ function AdminLog() {
             return;
         }
     
-        // Log before making the fetch call
-        console.log('Sending login request with email:', email, 'and password:', password);
-        
         try {
             const response = await fetch(`https://office-project.infinityfreeapp.com/test/AdminTables/login.php`, {
                 method: 'POST',
@@ -43,15 +40,21 @@ function AdminLog() {
                 body: JSON.stringify({ email, password }),
             });
     
-            // Log the response
-            console.log('Response received:', response);
+            // Log the raw response text
+            const rawResponse = await response.text();
+            console.log('Raw response:', rawResponse);
     
-            const data = await response.json();
-    
-            if (data.success) {
-                navigate('/admin/dashboard');
-            } else {
-                setError(data.message);
+            // Check if the response is JSON
+            try {
+                const data = JSON.parse(rawResponse);
+                if (data.success) {
+                    navigate('/admin/dashboard');
+                } else {
+                    setError(data.message);
+                }
+            } catch (err) {
+                console.error('Error parsing JSON:', err);
+                setError('An error occurred while processing the response.');
             }
         } catch (err) {
             console.error('Login error', err);
