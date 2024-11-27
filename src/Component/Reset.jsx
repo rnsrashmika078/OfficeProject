@@ -51,7 +51,7 @@ function Reset() {
 
                 <h1 className="d-flex justify-content-center gap-2">Administration</h1>
                 <h5 className="d-flex justify-content-center gap-2">Reset Admin Credentials</h5>
-                <img src="../public/hrlineimg.png" className="img-fluid d-flex justify-content-center gap-2" alt="..."></img>
+                {/* <img src="../public/hrlineimg.png" className="img-fluid d-flex justify-content-center gap-2" alt="..."></img> */}
                 <br/>
                 <div className="row mb-3">
                     <label htmlFor="inputEmail3" className="col-sm-3 col-form-label">Email</label>

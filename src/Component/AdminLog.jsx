@@ -36,15 +36,14 @@ function AdminLog() {
         // https://office-project.infinityfreeapp.com/
         // API request for login (replace with your API URL)
         try {
-            // const response = await fetch('http://localhost/test/AdminTables/login.php', {
-                const response = await fetch(`https://office-project.infinityfreeapp.com/test/AdminTables/login.php`, {
+            const response = await fetch('http://localhost/test/AdminTables/login.php', {
+                // const response = await fetch(`https://office-project.infinityfreeapp.com/test/AdminTables/login.php`, {
                     method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ email, password }),
-                // mode: 'cors',
-            });
+        });
     
             const data = await response.json();
     
@@ -52,7 +51,7 @@ function AdminLog() {
             if (data.success) {
                 navigate('/admin/dashboard');
             } else {
-                setError(data.message);  // Display error message from server
+                setError(data.message);  
             }
         } catch (err) {
             console.error('Login error', err);
