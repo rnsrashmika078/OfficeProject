@@ -43,7 +43,7 @@ function AdminLog() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ email, password }),
-                mode: 'cors',
+                // mode: 'cors',
             });
     
             const data = await response.json();
