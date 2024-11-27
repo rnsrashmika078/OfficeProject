@@ -1,0 +1,16 @@
+.printer-button {
+    background-color: transparent;
+    color:white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .printer-button:hover {
+    background-color: #4CAF50; /* Change this to your preferred color */
+    color: white; /* Optional: change text color on hover */
+  }
+  .printer-button:active{
+    background-color: #003366; /* Color when the button is clicked */
+  }
