@@ -25,11 +25,14 @@ function AdminLog() {
         navigate('/admin/createaccount');
     };
 
-    const handleLoginClick = async () => { 
+    const handleLoginClick = async () => {
         if (!email.trim() || !password.trim()) {
             setError('Both email and password fields are required!');
             return;
         }
+    
+        // Log before making the fetch call
+        console.log('Sending login request with email:', email, 'and password:', password);
         
         try {
             const response = await fetch(`https://office-project.infinityfreeapp.com/test/AdminTables/login.php`, {
@@ -40,17 +43,15 @@ function AdminLog() {
                 body: JSON.stringify({ email, password }),
             });
     
+            // Log the response
+            console.log('Response received:', response);
+    
             const data = await response.json();
     
-            // Assuming the server sends back email and password in the response
             if (data.success) {
-                console.log('Email:', data.email);      // Extract email from response
-                console.log('Password:', data.password); // Extract password from response
-                
-                // Navigate on success
                 navigate('/admin/dashboard');
             } else {
-                setError(data.message);  
+                setError(data.message);
             }
         } catch (err) {
             console.error('Login error', err);
