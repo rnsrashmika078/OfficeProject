@@ -36,8 +36,8 @@ function AdminLog() {
         // https://office-project.infinityfreeapp.com/
         // API request for login (replace with your API URL)
         try {
-            const response = await fetch('http://localhost/test/AdminTables/login.php', {
-                // const response = await fetch(`https://office-project.infinityfreeapp.com/test/AdminTables/login.php`, {
+            // const response = await fetch('http://localhost/test/AdminTables/login.php', {
+                const response = await fetch(`https://office-project.infinityfreeapp.com/test/AdminTables/login.php`, {
                     method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
