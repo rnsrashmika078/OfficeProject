@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/test': {
-        target: 'https://office-project.infinityfreeapp.com',
+        target: 'http://officedatabase101.com.preview.services',
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/test/, ''),
