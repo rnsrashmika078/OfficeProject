@@ -160,7 +160,7 @@ const RepairTable = () => {
     const rowData = data[rowIndex];
     const deviceId = rowData[0]; // ID should be in the first column
 
-    fetch(`${host}test/repair/delete.php`, {
+    fetch(`${host}/test/repair/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

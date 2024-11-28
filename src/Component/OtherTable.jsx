@@ -67,7 +67,7 @@ const OtherTable = () => {
   
   // Fetch data from the backend on component mount
   useEffect(() => {
-    fetch(`${host}/test/OtherTable/getdata.php`)
+    fetch(`${host}/test/OtherTable/getData.php`)
       .then((response) => response.json())
       .then((responseData) => {
         console.log('Fetched Data:', responseData); // Debug log

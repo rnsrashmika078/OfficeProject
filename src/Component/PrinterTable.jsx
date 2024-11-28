@@ -250,7 +250,8 @@ const PrinterTable = () => {
 
       <div style={{ overflowX: 'auto', maxWidth: '100%' }}>
         <table className="table border table-hover table-bordered text-center" style={{ fontSize: '13.5px', width: '100%' }}>
-        <thead className="table-dark">            <tr>
+        <thead className="table-dark">
+          <tr>
               <th>#</th>
               <th>BRANCH</th>
               <th>PRINTER NAME</th>

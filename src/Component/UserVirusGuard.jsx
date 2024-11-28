@@ -30,7 +30,7 @@ const UserVirusGuard = () => {
 
   // Fetch data from the backend on component mount
   useEffect(() => {
-    fetch(`${host}/test/hardware/VirusGuardTable/getdata.php`)
+    fetch(`${host}/test/hardware/VirusGuardTable/getData.php`)
       .then((response) => response.json())
       .then((responseData) => {
         console.log('Fetched Data:', responseData); // Debug log

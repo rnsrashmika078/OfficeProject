@@ -73,7 +73,7 @@ const Hardware = () => {
 
   // Fetch data from the backend on component mount
   useEffect(() => {
-    fetch(`${host}/test/hardware/MainTable/getdata.php`)
+    fetch(`${host}/test/hardware/MainTable/getData.php`)
       .then((response) => response.json())
       .then((responseData) => {
         console.log('Fetched Data:', responseData); // Debug log

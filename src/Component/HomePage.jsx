@@ -5,6 +5,8 @@ function HomePage() {
   return (
     <div>
       <NavBar />
+      
+     <center> <img src="./Icon.png" className="img-fluid" style={{width:"500px", marginTop:'30px'}} alt="..."></img>    </center>
       <div className="container text-center mt-5">
         <h1>Welcome to the Office Database</h1>
         <p className="lead">A platform to manage office resources, users, and administration tasks.</p>

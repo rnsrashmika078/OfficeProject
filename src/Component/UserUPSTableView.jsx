@@ -19,7 +19,7 @@ const UserUPSTableView = () => {
 
   // Fetch data from the backend on component mount
   useEffect(() => {
-    fetch(`${host}/test/UPSTable/getdata.php`)
+    fetch(`${host}/test/UPSTable/getData.php`)
       .then((response) => response.json())
       .then((responseData) => {
         console.log('Fetched Data:', responseData); // Debug log

@@ -29,7 +29,7 @@ const UserOtherTableView = () => {
 
   // Fetch data from the backend on component mount
   useEffect(() => {
-    fetch(`${host}/test/OtherTable/getdata.php`)
+    fetch(`${host}/test/OtherTable/getData.php`)
       .then((response) => response.json())
       .then((responseData) => {
         console.log('Fetched Data:', responseData); // Debug log
@@ -196,12 +196,11 @@ const UserOtherTableView = () => {
         </div>
       </div>
       </div>
-
       <div style={{ overflowX: 'auto', maxWidth: '100%' }}>
         <table className="table border table-hover table-bordered text-center" style={{ fontSize: '13.5px', width: '100%' }}>
          <thead className="table-dark">
             <tr>
-              <th>#</th> {/* Row number column */}
+              <th>#</th>
               <th>BRANCH</th>
               <th>DEVICE</th>
               <th>MAKE</th>

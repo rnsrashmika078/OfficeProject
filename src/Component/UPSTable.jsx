@@ -71,10 +71,10 @@ const UPSTable = () => {
   
   // Fetch data from the backend on component mount
   useEffect(() => {
-    fetch(`${host}/test/UPSTable/getdata.php`)
+    fetch(`${host}/test/UPSTable/getData.php`)
       .then((response) => response.json())
       .then((responseData) => {
-        console.log('Fetched Data:', responseData); // Debug log
+        // console.log('Fetched Data:', responseData); // Debug log
         setData(responseData); // Set the fetched data in the state
       })
       .catch((error) => console.error('Error fetching data:', error));
