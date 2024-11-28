@@ -1,5 +1,7 @@
 {
   "name": "officeproject-01",
+  "homepage": "https://office-project.infinityfreeapp.com",
+
   "private": true,
   "version": "0.0.0",
   "type": "module",
