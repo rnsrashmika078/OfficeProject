@@ -4,7 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 function CreateAccount() {
-    const host = 'https://office-project.infinityfreeapp.com';
+    // const host = 'https://office-project.infinityfreeapp.com';
+    const host = 'https://localhost';
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');

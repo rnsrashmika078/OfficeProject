@@ -5,7 +5,10 @@ import { useState } from 'react';
 
 function AdminLog() {
 
-    // const host = 'https://office-project.infinityfreeapp.com';
+    const host = 'http://officedatabase101.com.preview.services';
+
+    // http://officedatabase101.com.preview.services/test/AdminTables/login.php
+    // const host  = 'https://192.168.0.100'
     // const host = 'http://localhost';
   
     const [email, setEmail] = useState('');
@@ -31,8 +34,11 @@ function AdminLog() {
             return;
         }
     
+        console.log('Sending email:', email);
+        console.log('Sending password:', password);
+    
         try {
-            const response = await fetch(`https://office-project.infinityfreeapp.com/test/AdminTables/login.php`, {
+            const response = await fetch(`${host}/test/AdminTables/login.php`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,21 +46,13 @@ function AdminLog() {
                 body: JSON.stringify({ email, password }),
             });
     
-            // Log the raw response text
-            const rawResponse = await response.text();
-            console.log('Raw response:', rawResponse);
+            const data = await response.json(); // Assuming the response is valid JSON
+            console.log("Response Data:", data); // Log the response data
     
-            // Check if the response is JSON
-            try {
-                const data = JSON.parse(rawResponse);
-                if (data.success) {
-                    navigate('/admin/dashboard');
-                } else {
-                    setError(data.message);
-                }
-            } catch (err) {
-                console.error('Error parsing JSON:', err);
-                setError('An error occurred while processing the response.');
+            if (data.success) {
+                navigate('/admin/dashboard');
+            } else {
+                setError(data.message);
             }
         } catch (err) {
             console.error('Login error', err);
@@ -62,10 +60,6 @@ function AdminLog() {
         }
     };
     
-    
-    const handleResetClick = () => {
-        navigate('/admin/reset');
-    };
 
     return (
         <>

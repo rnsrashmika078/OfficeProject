@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 
 const Hardware = () => {
-  const host = 'https://office-project.infinityfreeapp.com';
+  const host = 'https://localhost';
+  
+  // const host = 'https://office-project.infinityfreeapp.com';
   const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
