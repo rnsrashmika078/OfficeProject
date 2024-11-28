@@ -10,4 +10,3 @@ timeout /t 1 /nobreak
 :: Open the browser at localhost:5173
 start http://localhost:5173
 
-to this script add above i givve node js install code .. first check node install in computer if not to that

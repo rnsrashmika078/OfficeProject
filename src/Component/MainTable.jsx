@@ -77,11 +77,7 @@ const MainTable = () => {
         setData(responseData); // Set the fetched data in the state
       })
       .catch((error) => console.error('Error fetching data:', error));
-  }, []); // Empty dependency array ensures this effect runs only once when the component is mounted
-
- 
- 
-
+  }, []); 
   const handleSave = () => {
     const rowData = data[editingRow];
     const deviceId = rowData[0]; // ID should be in the first column
