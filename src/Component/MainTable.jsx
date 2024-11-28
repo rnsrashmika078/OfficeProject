@@ -71,6 +71,7 @@ const MainTable = () => {
   useEffect(() => {
     // Make an API call to the backend to fetch the data
     fetch(`${host}/test/getdata.php`)
+    // fetch()
       .then((response) => response.json()) // Assuming the server returns a JSON response
       .then((responseData) => {
         setData(responseData); // Set the fetched data in the state

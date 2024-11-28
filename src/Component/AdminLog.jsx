@@ -39,8 +39,10 @@ function AdminLog() {
         console.log('Sending password:', password);
     
         try {
+            // const response = await fetch(`${host}/test/AdminTables/login.php`, {
             const response = await fetch(`${host}/test/AdminTables/login.php`, {
-                method: 'POST',
+           
+            method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
