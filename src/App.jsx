@@ -11,6 +11,7 @@ import Hardware from './Component/Hardware.jsx';
 import UserRMOffice from './Component/UserRMOffice.jsx';
 import UserDatabaseSelection from './Component/UserDatabaseSelection.jsx';
 import UserHardware from './Component/UserHardware.jsx';
+import Test from './Component/Test.jsx';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/admin" element={<AdminLog />} />
+        {/* <Route path="/admin" element={<Test />} /> */}
         <Route path="/admin/reset" element={<Reset />} />
         <Route path="/admin/createaccount" element={<CreateAccount />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />

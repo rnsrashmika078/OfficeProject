@@ -69,7 +69,7 @@ const HardwarePrinterTable = () => {
   
   // Fetch data from the backend on component mount
   useEffect(() => {
-    fetch(`${host}/test/Hardware/PrinterTable/getData.php`)
+    fetch(`${host}/test/Hardware/PrinterTable/getdata.php`)
       .then((response) => response.json())
       .then((responseData) => {
         setData(responseData); // Set the fetched data in the state

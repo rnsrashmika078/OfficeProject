@@ -5,8 +5,8 @@ import { useState } from 'react';
 
 function AdminLog() {
 
-    // const host = 'http://officedatabase101.com.preview.services';
-    const host = 'https://office-project.infinityfreeapp.com';
+    const host = 'http://officedatabase101.com.preview.services';
+    // const host = 'https://office-project.infinityfreeapp.com';
 // 
     // http://officedatabase101.com.preview.services/test/AdminTables/login.php
     // const host  = 'https://192.168.0.100'
