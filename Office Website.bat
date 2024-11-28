@@ -9,4 +9,3 @@ timeout /t 1 /nobreak
 
 :: Open the browser at localhost:5173
 start http://localhost:5173
-
