@@ -4,5 +4,6 @@
     z-index: 1000; /* Ensures it stays above other content */
     background-color: white; /* Add a background color to prevent overlap transparency */
     border-bottom: 1px solid #ddd; /* Optional: subtle border for separation */
-    padding: 10px 0; /* Optional: padding for better spacing */
+    padding: auto; /* Optional: padding for better spacing */
+
 }

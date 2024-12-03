@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 function CreateAccount() {
     // const host = 'https://office-project.infinityfreeapp.com';
-    const host = 'http://officedatabase101.com.preview.services';
+    const host = 'http://localhost';
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');

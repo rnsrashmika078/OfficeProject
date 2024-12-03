@@ -6,7 +6,7 @@ function UserDatabaseSelection() {
     <div>
      <NavBar/>
      <center>
-     <div className="content-right" style={{ marginLeft: "0px", marginTop: "10px", border: '2px solid black', textAlign:'center', color: 'yellow', backgroundColor:'Black'}}>
+     <div className="content-right" style={{ marginLeft: "0px", marginTop: "10px", border: '2px solid black', textAlign:'center', color: 'white', backgroundColor:'Black'}}>
                     <h2>USER DASHBOARD </h2>
                 </div>
                 <hr /></center>

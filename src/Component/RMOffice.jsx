@@ -11,6 +11,7 @@ import UPSTable from './UPSTable';
 import SummaryTable from './SummaryTable';
 import DatabaseSelection from './DatabaseSelection';
 import RepairTable from './RepairTable';
+import { left } from '@popperjs/core';
 
 const RMOffice = () => {
     const Navigate = useNavigate();
@@ -22,17 +23,18 @@ const RMOffice = () => {
     const handleOnClick = (componentName) => {
         setSelectedComponent(componentName);  // Update the state to reflect the active component
     };
-   
+   const[ hide , sethide] = useState(false);
+    const handleoffcanvas = () =>{
+        sethide(!hide);
+    }
     return (
         <>
             <NavBar />
             <div className="container-fluid">
-            
-                <div className="offcanvas offcanvas-start show" style={{ fontSize:'10px', maxWidth: "100px", border: ".5px solid #ccc", marginTop: "60px", marginBottom: "20px", padding: "5px", borderRadius: "8px", backgroundColor: "black", color: "white" }} tabIndex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+                <div className="offcanvas offcanvas-start show" style={{ fontSize:'10px', maxWidth: "100px", border: ".5px solid #ccc", marginTop: "100px", marginBottom: "20px", padding: "5px", borderRadius: "8px", backgroundColor: "black", color: "white" }} tabIndex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
                     <div className="offcanvas-header">
                         <h5 className="offcanvas-title" id="offcanvasLabel"></h5>
                     </div>
-
                     <div className="offcanvas-body">
                         <hr />
                         <div className="tab-content mt-3" id="myTabContent">

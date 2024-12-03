@@ -2,14 +2,13 @@
 import { useState, useEffect } from 'react';
 
 const UserMainTableView = () => {
-  const host = 'http://officedatabase101.com.preview.services';
+  const host = 'http://localhost';
   const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('ALL');
   const [searchTerm, setSearchTerm] = useState("");
   const [isAddButtonDisabled, setIsAddButtonDisabled] = useState(false);
-
   
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
@@ -34,11 +33,13 @@ const UserMainTableView = () => {
         setData(responseData); // Set the fetched data in the state
       })
       .catch((error) => console.error('Error fetching data:', error));
+      
   }, []); // Empty dependency array ensures this effect runs only once when the component is mounted
 
   const handleEditClick = (rowIndex) => {
     setEditingRow(rowIndex);
   };
+  
  
 
   const handleSave = () => {

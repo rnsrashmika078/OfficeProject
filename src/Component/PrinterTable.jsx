@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 const PrinterTable = () => {
-  const host = 'http://officedatabase101.com.preview.services';
+  const host = 'http://localhost';
   const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
@@ -281,7 +281,11 @@ const PrinterTable = () => {
           {row.map((cell, colIndex) => {
             // Skip the empty column
             if (colIndex !== 0) {
-              return <td key={colIndex}>{renderCell(cell, rowIndex, colIndex)}</td>;
+              return (
+                <td key={colIndex} style={isRowHighlighted(row) ? { backgroundColor: 'yellow' } : {backgroundColor:'white'}}>
+                  {renderCell(cell, rowIndex, colIndex)}
+                </td>
+              );
             }
           })}
             <td>

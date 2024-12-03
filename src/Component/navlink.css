@@ -1,0 +1,19 @@
+.navs{
+    display: flex;
+    background-color: black;
+    border-right: 2px solid white;
+    margin-left: 20px;
+    border-left: 2px solid white;
+    padding: 5px;
+    border-radius: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+  
+}
+.navs :hover{
+    display: flex;
+    background-color: rgb(17, 0, 255);
+    /* border: 2px solid white; */
+    border-radius: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

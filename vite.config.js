@@ -7,6 +7,8 @@ export default defineConfig({
   // base : "/OfficeProject/",
 
   server: {
+    port : 5173,
+    host : true,
     proxy: {
       '/test': {
         target: 'http://officedatabase101.com.preview.services',

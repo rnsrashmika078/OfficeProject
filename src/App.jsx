@@ -12,9 +12,13 @@ import UserRMOffice from './Component/UserRMOffice.jsx';
 import UserDatabaseSelection from './Component/UserDatabaseSelection.jsx';
 import UserHardware from './Component/UserHardware.jsx';
 import Test from './Component/Test.jsx';
+import Header from './Component/Header.jsx';
+import Footer from './Component/Footer.jsx';
 
 function App() {
   return (
+    <>
+    {/* <Header/> */}
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -31,6 +35,8 @@ function App() {
         <Route path="/admin/dashboard/hardware" element={<Hardware />} />
       </Routes>
     </Router>
+    <Footer/>
+    </>
   );
 }
 

@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 
 const UserHardwareOther = () => {
 
-  const host = 'http://officedatabase101.com.preview.services';  const [data, setData] = useState([]); // Store the data from the backend
+  const host = 'http://localhost';
+    const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('ALL');

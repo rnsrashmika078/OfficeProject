@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 
 const HardwarePrinterTable = () => {
   // const host = 'https://office-project.infinityfreeapp.com';
-  const host = 'http://officedatabase101.com.preview.services';
+  const host = 'http://localhost';
   const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);

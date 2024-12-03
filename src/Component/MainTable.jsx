@@ -1,11 +1,14 @@
+import { read } from '@popperjs/core';
+import axios from 'axios';
 import { useState, useEffect, useRef } from 'react';
 const MainTable = () => {
-  const host = 'http://officedatabase101.com.preview.services';  
+  const host = 'http://localhost';
   const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('ALL');
   const [searchTerm, setSearchTerm] = useState("");
+  const [externaldata, setexternalData] = useState([]);
   const [isAddButtonDisabled, setIsAddButtonDisabled] = useState(false);
   const rowRef = useRef();
   
@@ -127,6 +130,7 @@ const MainTable = () => {
             updatedData[editingRow][0] = newId; // Update the ID in the row data
             setData(updatedData);
             setEditingRow(null); // Exit edit mode
+            
           })
           .catch((error) => console.error('Error saving new data:', error));
       })
@@ -276,6 +280,48 @@ const MainTable = () => {
 
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('./data.json'); // Adjust the path if needed
+            setexternalData(response.data);
+            console.log("Fetched Data:", response.data);
+            
+            // Automatically store fetched data
+            await storeData(response.data);
+            
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    };
+
+    const storeData = async (data) => {
+        try {
+            const postResponse = await axios.post(`${host}/test/save`, data);
+            console.log("Data stored successfully:", postResponse.data);
+        } catch (error) {
+            console.error("Error storing data:", error);
+        }
+    };
+
+    fetchData();
+}, []);
+  const filechange = (e) => {
+    const  value  = e.target.value;
+    const file = e.target.type === "file" ? value.split('\\').pop() : null;
+  
+    const response = axios.get('');
+    setexternalData(response.data);
+    alert(externaldata);
+
+    // axios.get(file)
+    //   .then(response => {
+    //     const fileData = response.data; // Extract the fetched file content
+    //     setexternalData(JSON.stringify(fileData));
+    //     alert(externaldata);
+
+        // fetch(`${host}/test/save.php`  
+  };
   return (
     <>
     {/* End of the search bar */}
@@ -284,6 +330,10 @@ const MainTable = () => {
           <button className="btn btn-secondary dropdown-toggle" style={{ padding: '4px 8px', fontSize: '15px', marginRight: '5px'}} type="button" data-bs-toggle="dropdown" aria-expanded="false">
           {'FILTER: ' + selectedCategory  || 'FILTER: ALL'}
           </button>
+          <button onClick={handleAddEmptyRow} disabled={isAddButtonDisabled} className="btn btn-primary" style={{ margin: '5px', padding: '4px 8px', fontSize: '15px' }}>ADD DATA</button>
+          {/* <input type="file" onChange={filechange} accept='text/**' disabled={isAddButtonDisabled} className="btn btn-dark" style={{ margin: '5px',marginLeft: '10px', padding: '4px 8px', fontSize: '15px'}}/> */}
+          {/* <button onClick={handleAddEmptyRow} disabled={isAddButtonDisabled} className="btn btn-danger" style={{ margin: '5px',marginLeft: '10px', padding: '4px 8px', fontSize: '15px' }}>DELETE ALL</button> */}
+
           <ul className="dropdown-menu">
           <li><a className="dropdown-item" onClick={() => handleCategorySelect('ALL')}>ALL</a></li>
             <li><a className="dropdown-item" onClick={() => handleCategorySelect('Manager')}>Manager</a></li>
@@ -300,7 +350,6 @@ const MainTable = () => {
             <li><a className="dropdown-item" onClick={() => handleCategorySelect('Audit')}>Audit Branch</a></li>
             <li><a className="dropdown-item" onClick={() => handleCategorySelect('LAB')}>LAB</a></li>
           </ul>
-          <button onClick={handleAddEmptyRow} disabled={isAddButtonDisabled} className="btn btn-primary" style={{ margin: '5px',marginRight: '100px', padding: '4px 8px', fontSize: '15px' }}>ADD DATA</button>
           <div className="input-group mb-2" >
               <input
                 type="text"

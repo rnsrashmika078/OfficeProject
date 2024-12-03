@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 
 const UserHardwareMainTable = () => {
-  const host = 'http://officedatabase101.com.preview.services';
+  const host = 'http://localhost';
   const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('ALL');
   const [searchTerm, setSearchTerm] = useState("");
+  const [datalength,setdataLength] = useState(0);
 
 
 
@@ -34,16 +35,24 @@ const UserHardwareMainTable = () => {
   // Fetch data from the backend on component mount
   useEffect(() => {
     fetch(`${host}/test/Hardware/MainTable/getData.php`)
+    
       .then((response) => response.json())
       .then((responseData) => {
         console.log('Fetched Data:', responseData); // Debug log
         setData(responseData); // Set the fetched data in the state
+        setdataLength(data.length);
       })
+
+    
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
   
   useEffect(() => {
+    
     console.log('Data after fetch:', data);
+
+    // alert(data.length)
+    
   }, [data]);
   
 

@@ -1,0 +1,22 @@
+[
+  {
+   
+    "device_type": "Laptop",
+    "person": "Rashmika Siriwardhana",
+    "os": "Windows",
+    "processor": "Core i5",
+    "ram": "8GB",
+    "hard_drive_capacity": "500GB",
+    "keyboard_status": "Working",
+    "mouse_status": "Not Working",
+    "network_connectivity": "Connected",
+    "printer_connectivity": "Connected",
+    "virus_guard": "Installed",
+    "ip_address": "192.168.8.1",
+    "monitor": "XCX-CS-R",
+    "cpu": "CORE-21-I5-8250U",
+    "laptop": "RS-ACER-E15",
+    "purchase_date": "2024-12-02",
+    "section": "IT"
+  }
+]
