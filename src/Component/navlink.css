@@ -1,19 +1,53 @@
-.navs{
-    display: flex;
+
+.button{
+    color:white;
     background-color: black;
-    border-right: 2px solid white;
-    margin-left: 20px;
-    border-left: 2px solid white;
-    padding: 5px;
+    border: 1px solid white;
+    margin-left: 5px;
+    padding: 8px;
     border-radius: 50px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: large;
-  
+    font-size: medium;
 }
-.navs :hover{
-    display: flex;
-    background-color: rgb(17, 0, 255);
-    /* border: 2px solid white; */
+.button:hover{
+    color:white;
+    background-color: #4CAF50; 
     border-radius: 20px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border:2px solid black;
+}
+.navbtn{
+    margin-right: 400px;
+}
+.dashboard{
+    margin-right:25px;
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px;
+    animation: changeColor 2s infinite alternate;
+}
+   @keyframes changeColor{
+    0%{
+        background-color: red;
+    }
+    50%{
+        background-color: blue;
+    }
+    100%{
+        background-color: black;
+    }
+}
+.header{
+    text-align: center;
+    color: solid black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+
+}
+.subheader{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: x-small;
 }

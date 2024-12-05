@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-const UserHardwareMainTable = () => {
-  const host = 'http://localhost';
+const UserHardwareMainTable = ({host}) => {
+  
   const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
@@ -34,7 +34,7 @@ const UserHardwareMainTable = () => {
   
   // Fetch data from the backend on component mount
   useEffect(() => {
-    fetch(`${host}/test/Hardware/MainTable/getData.php`)
+    fetch(`${host}/Hardware/MainTable/getData.php`)
     
       .then((response) => response.json())
       .then((responseData) => {
@@ -62,7 +62,7 @@ const UserHardwareMainTable = () => {
     setIsAddButtonDisabled(false);
 
     // Delete the existing row from the database
-    fetch('http://localhost/test/Hardware/MainTable/delete.php', {
+    fetch(`${host}/Hardware/MainTable/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -93,7 +93,7 @@ const UserHardwareMainTable = () => {
         };
 
         // Send the updated data to the backend
-        fetch('http://localhost/test/Hardware/MainTable/save.php', {
+        fetch(`${host}/Hardware/MainTable/save.php`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -135,7 +135,7 @@ const UserHardwareMainTable = () => {
     const rowData = data[rowIndex];
     const OtherId = rowData[0]; // ID should be in the first column
 
-    fetch('http://localhost/test/Hardware/MainTable/delete.php', {
+    fetch(`${host}/Hardware/MainTable/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -162,10 +162,11 @@ const UserHardwareMainTable = () => {
       switch (colIndex) {
         case 0:
           return <span>{cell}</span>; // ID is just plain text
+          
           case 17: // Section
           return (
             <select value={cell} onChange={(e) => handleCellChange(rowIndex, colIndex, e.target.value)}>
-            <option >Ettampitiya WSS</option>
+            <option >Ettampitiya</option>
             <option >Keppetipola WSS</option>
             <option >Divithotawela WSS</option>
             <option >Ambagasdowa WSS</option>
@@ -188,14 +189,14 @@ const UserHardwareMainTable = () => {
                  <option>Server</option>
                  <option>Desktop</option>
               <option>Laptop</option>
-              <option>Printer</option>
+              {/* <option>Printer</option>
               <option>Photocopy Machine</option>
               <option>Line Printer</option>
               <option>Fax</option>
               <option>Scanner</option>
               <option>Projector</option>
               <option>TV</option>
-              <option>UPS</option>
+              <option>UPS</option> */}
             </select>
           );
         default:
@@ -214,7 +215,7 @@ const UserHardwareMainTable = () => {
           </button>
           <ul className="dropdown-menu">
   <li><a className="dropdown-item" onClick={() => handleCategorySelect('ALL')}>ALL</a></li>
-  <li><a className="dropdown-item" onClick={() => handleCategorySelect('Ettampitiya WSS')}>Ettampitiya WSS</a></li>
+  <li><a className="dropdown-item" onClick={() => handleCategorySelect('Ettampitiya')}>Ettampitiya WSS</a></li>
   <li><a className="dropdown-item" onClick={() => handleCategorySelect('Keppetipola WSS')}>Keppetipola WSS</a></li>
   <li><a className="dropdown-item" onClick={() => handleCategorySelect('Divithotawela WSS')}>Divithotawela WSS</a></li>
   <li><a className="dropdown-item" onClick={() => handleCategorySelect('Ambagasdowa WSS')}>Ambagasdowa WSS</a></li>

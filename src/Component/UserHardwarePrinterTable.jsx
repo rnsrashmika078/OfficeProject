@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
-const UserHardwarePrinterTable = () => {
+const UserHardwarePrinterTable = ({host}) => {
   // const host = 'http://officedatabase101.com.preview.services';
-  const host = 'http://localhost';
+  
 
   const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
@@ -30,7 +30,7 @@ const UserHardwarePrinterTable = () => {
 
   // Fetch data from the backend on component mount
   useEffect(() => {
-    fetch(`${host}/test/Hardware/PrinterTable/getdata.php`)
+    fetch(`${host}/Hardware/PrinterTable/getdata.php`)
       .then((response) => response.json())
       .then((responseData) => {
         setData(responseData); // Set the fetched data in the state
@@ -47,7 +47,7 @@ const UserHardwarePrinterTable = () => {
     const printerId = rowData[0]; // Assuming ID is in the first column
     setIsAddButtonDisabled(false);
     // Delete the existing row from the database
-    fetch(`http://localhost/test/Hardware/PrinterTable/delete.php`, {
+    fetch(`${host}/Hardware/PrinterTable/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -66,7 +66,7 @@ const UserHardwarePrinterTable = () => {
         };
 
         // Send the updated data to the backend
-        fetch('http://localhost/test/Hardware/PrinterTable/save.php', {
+        fetch(`${host}/Hardware/PrinterTable/save.php`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -106,7 +106,7 @@ const UserHardwarePrinterTable = () => {
     const rowData = data[rowIndex];
     const printerId = rowData[0]; // ID should be in the first column
 
-    fetch(`http://localhost/test/Hardware/PrinterTable/delete.php`, {
+    fetch(`${host}/Hardware/PrinterTable/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

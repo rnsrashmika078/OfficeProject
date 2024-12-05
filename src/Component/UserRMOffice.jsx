@@ -17,7 +17,7 @@ import UserOtherTableView from './UserOtherTableView';
 import UserSummaryTableView from './UserSummaryTableView';
 import UserRepairTable from './UserRepairTable';
 
-const UserRMOffice = () => {
+const UserRMOffice = ({host}) => {
     const Navigate = useNavigate();
     
     // State to keep track of the selected component
@@ -30,17 +30,10 @@ const UserRMOffice = () => {
    
     return (
         <>
-            <NavBar />
+            <NavBar header="USER DASHBOARD" subheader="Rm Office Bandarawela"/>
             <div className="container-fluid">
-            
-                <div className="offcanvas offcanvas-start show" style={{ fontSize:'10px', maxWidth: "100px", border: ".5px solid #ccc", marginTop: "100px", marginBottom: "20px", padding: "5px", borderRadius: "8px", backgroundColor: "black", color: "white" }} tabIndex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-                    <div className="offcanvas-header">
-                        <h5 className="offcanvas-title" id="offcanvasLabel"></h5>
-                    </div>
 
-                    <div className="offcanvas-body">
-                        <hr />
-                        <div className="tab-content mt-3" id="myTabContent">
+                 <center><div style={{display:'flex', width:'100%', padding:'10px'}} className="tables">
                             <button 
                                 className='printer-button' 
                                 style={{ backgroundColor: selectedComponent === 'Branch' ? '#007bff' : '', color: selectedComponent === 'Branch' ? 'white' : '' }} 
@@ -87,24 +80,18 @@ const UserRMOffice = () => {
                                 style={{ backgroundColor: selectedComponent === 'Summary' ? '#007bff' : '', color: selectedComponent === 'Summary' ? 'white' : '' }} 
                                 onClick={() => handleOnClick('Summary')}
                             >
-                                SUMMARY TABLE
+                                SUMMARY
                             </button>
                         </div>
-                    </div>
-                </div>
-                {/* Content on the right of the Offcanvas */}
-                <div className="content-right" style={{ marginLeft: "100px", marginTop: "10px", border: '2px solid black', textAlign:'center', color: 'white', backgroundColor:'black'}}>
-                    <h2>USER DASHBOARD </h2>
-                    <h5>RM Office Bandarawela</h5>
-                </div>
+                        </center>  
                 <hr />
-                <div className="content-right" style={{ marginLeft: "100px", marginTop: "10px" }}>
-                    {selectedComponent === 'Branch' && <UserMainTableView />}
-                    {selectedComponent === 'Printers' && <UserPrinterTableView style={{ marginLeft: '0px', marginTop: '10px' }} />}
-                    {selectedComponent === 'UPS' && <UserUPSTableView />}
-                    {selectedComponent === 'repair' && <UserRepairTable />}
-                    {selectedComponent === 'Others' && <UserOtherTableView />}
-                    {selectedComponent === 'Summary' && <UserSummaryTableView />}
+                <div className="content-right" style={{ marginTop: "10px" }}>
+                    {selectedComponent === 'Branch' && <UserMainTableView host={host}/>}
+                    {selectedComponent === 'Printers' && <UserPrinterTableView host={host} style={{ marginLeft: '0px', marginTop: '10px' }} />}
+                    {selectedComponent === 'UPS' && <UserUPSTableView host={host}/>}
+                    {selectedComponent === 'repair' && <UserRepairTable host={host}/>}
+                    {selectedComponent === 'Others' && <UserOtherTableView host={host}/>}
+                    {selectedComponent === 'Summary' && <SummaryTable host={host}/>}
                     
                 </div>
             </div>

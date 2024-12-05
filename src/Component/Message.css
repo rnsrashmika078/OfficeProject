@@ -1,0 +1,29 @@
+.message {
+    
+    background-color: rgb(47, 0, 255);
+    box-shadow: 5px 5px 5px white;  /* Fixed shadow syntax */
+    width: 30%;
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+    /* border: 2px solid black; */
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: fixed; /* Use fixed positioning */
+    bottom: 20px; /* Distance from bottom */
+    right: 20px; /* Distance from right */
+    margin: 0; /* Reset margin */
+    z-index: 9999; /* Ensures it is on top of other elements */
+    animation: fadeOut 10s forwards;
+
+}
+@keyframes fadeOut {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+
+}

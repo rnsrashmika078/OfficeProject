@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-const UserVirusGuard = () => {
-  const host = 'http://localhost';
+const UserVirusGuard =({host})=> {
+
   const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
@@ -30,7 +30,7 @@ const UserVirusGuard = () => {
 
   // Fetch data from the backend on component mount
   useEffect(() => {
-    fetch(`${host}/test/Hardware/VirusGuardTable/getData.php`)
+    fetch(`${host}/Hardware/VirusGuardTable/getData.php`)
       .then((response) => response.json())
       .then((responseData) => {
         console.log('Fetched Data:', responseData); // Debug log
@@ -50,7 +50,7 @@ const UserVirusGuard = () => {
     setIsAddButtonDisabled(false);
 
     // Delete the existing row from the database
-    fetch('http://localhost/test/Hardware/VirusGuardTable/delete.php', {
+    fetch(`${host}/Hardware/VirusGuardTable/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -72,7 +72,7 @@ const UserVirusGuard = () => {
         };
 
         // Send the updated data to the backend
-        fetch('http://localhost/test/Hardware/VirusGuardTable/save.php', {
+        fetch(`${host}/Hardware/VirusGuardTable/save.php`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -113,7 +113,7 @@ const UserVirusGuard = () => {
     const rowData = data[rowIndex];
     const OtherId = rowData[0]; // ID should be in the first column
 
-    fetch('http://localhost/test/Hardware/VirusGuardTable/delete.php', {
+    fetch(`${host}/Hardware/VirusGuardTable/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-const UserHardwareNetwork = () => {
-  const host = 'http://localhost';
+const UserHardwareNetwork =({host}) => {
+ 
   const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
@@ -19,7 +19,7 @@ const UserHardwareNetwork = () => {
 
   // Fetch data from the backend on component mount
   useEffect(() => {
-    fetch(`${host}/test/hardware/Network/getdata.php`)
+    fetch(`${host}/hardware/Network/getdata.php`)
       .then((response) => response.json())
       .then((responseData) => {
         console.log('Fetched Data:', responseData); // Debug log
@@ -39,7 +39,7 @@ const UserHardwareNetwork = () => {
     setIsAddButtonDisabled(false);
 
     // Delete the existing row from the database
-    fetch('http://localhost/test/Hardware/Network/delete.php', {
+    fetch(`${host}/Hardware/Network/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -60,7 +60,7 @@ const UserHardwareNetwork = () => {
         };
 
         // Send the updated data to the backend
-        fetch('http://localhost/test/Hardware/Network/save.php', {
+        fetch(`${host}/Hardware/Network/save.php`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -103,7 +103,7 @@ const UserHardwareNetwork = () => {
     const rowData = data[rowIndex];
     const OtherId = rowData[0]; // ID should be in the first column
 
-    fetch('http://localhost/test/Hardware/Network/delete.php', {
+    fetch(`${host}/Hardware/Network/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

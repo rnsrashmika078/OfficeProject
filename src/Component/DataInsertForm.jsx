@@ -4,7 +4,7 @@ const DataInsertForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleInsert = () => {
+  const handleInsert = ({host}) => {
     // Insert data logic here
     console.log("Username:", username);
     console.log("Password:", password);

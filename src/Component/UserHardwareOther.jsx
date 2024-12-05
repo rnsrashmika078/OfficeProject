@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
-const UserHardwareOther = () => {
+const UserHardwareOther = ({host}) => {
 
-  const host = 'http://localhost';
+
     const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
@@ -26,7 +26,7 @@ const UserHardwareOther = () => {
   });
   // Fetch data from the backend on component mount
   useEffect(() => {
-    fetch(`${host}/test/Hardware/Other/getdata.php`)
+    fetch(`${host}/Hardware/Other/getdata.php`)
       .then((response) => response.json())
       .then((responseData) => {
         setData(responseData); // Set the fetched data in the state
@@ -43,7 +43,7 @@ const UserHardwareOther = () => {
     const printerId = rowData[0]; // Assuming ID is in the first column
     setIsAddButtonDisabled(false);
     // Delete the existing row from the database
-    fetch(`http://localhost/test/Hardware/Other/delete.php`, {
+    fetch(`${host}/Hardware/Other/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -68,7 +68,7 @@ const UserHardwareOther = () => {
         };
 
         // Send the updated data to the backend
-        fetch('http://localhost/test/Hardware/Other/save.php', {
+        fetch(`${host}/Hardware/Other/save.php`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -108,7 +108,7 @@ const UserHardwareOther = () => {
     const rowData = data[rowIndex];
     const printerId = rowData[0]; // ID should be in the first column
 
-    fetch(`http://localhost/test/Hardware/Other/delete.php`, {
+    fetch(`${host}/Hardware/Other/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

@@ -1,14 +1,14 @@
+import Message from "./Message";
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
 
-function DatabaseSelection() {
+function DatabaseSelection({host}) {
   return (
     <div>
-     <NavBar/>
+       <Message msgbody="You have logged in as Admin"/>
+     <NavBar header="ADMIN PANEL"/>
      <center>
-     <div className="content-right" style={{ marginLeft: "0px", marginTop: "10px", border: '2px solid black', textAlign:'center', color: 'yellow', backgroundColor:'Black'}}>
-                    <h2>ADMIN DASHBOARD </h2>
-                </div>
+  
                 <hr /></center>
       <div className="container text-center mt-5">
         <h1>Welcome to the Office Database</h1>

@@ -14,8 +14,9 @@ import HardwarePrinterTable from './HardwarePrinterTable';
 import HardwareOther from './HardwareOther';
 import NetworkTable from './NetworkTable';
 import HardwareVirusGuard from './HardwareVirusGuard';
+import HardwareSummaryTable from './HardwareSummaryTable';
 
-const Hardware = () => {
+const Hardware = ({host}) => {
     const Navigate = useNavigate();
     
     // State to keep track of the selected component
@@ -28,17 +29,10 @@ const Hardware = () => {
    
     return (
         <>
-            <NavBar />
+            <NavBar header="ADMIN DASHBOARD" subheader="Divisional Site Details"/>
             <div className="container-fluid">
-            
-            <div className="offcanvas offcanvas-start show" style={{ fontSize:'10px', maxWidth: "100px", border: ".5px solid #ccc", marginTop: "100px", marginBottom: "20px", padding: "5px", borderRadius: "8px", backgroundColor: "black", color: "white" }} tabIndex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-            <div className="offcanvas-header">
-                        <h5 className="offcanvas-title" id="offcanvasLabel"></h5>
-                    </div>
-
-                    <div className="offcanvas-body">
+            <center><div style={{display:'flex', width:'100%', padding:'10px'}} className="tables">
                         <hr />
-                        <div className="tab-content mt-3" id="myTabContent">
                             <button 
                                 className='printer-button' 
                                 style={{ backgroundColor: selectedComponent === 'Branch' ? '#007bff' : '', color: selectedComponent === 'Branch' ? 'white' : '' }} 
@@ -47,14 +41,7 @@ const Hardware = () => {
                                 DEVICE INFO
                             </button>
                             <hr />
-                            {/* <button 
-                                className='printer-button' 
-                                style={{ backgroundColor: selectedComponent === 'network' ? '#007bff' : '', color: selectedComponent === 'network' ? 'white' : '' }} 
-                                onClick={() => handleOnClick('network')}
-                            >
-                                NETWORK INFO
-                            </button>
-                            <hr /> */}
+                          
                             <button 
                                 className='printer-button' 
                                 style={{ backgroundColor: selectedComponent === 'VirusGuard' ? '#007bff' : '', color: selectedComponent === 'VirusGuard' ? 'white' : '' }} 
@@ -79,40 +66,27 @@ const Hardware = () => {
                                 OTHER TABLE
                             </button>
                             <hr />
-                            {/* <button 
-                                className='printer-button' 
-                                style={{ backgroundColor: selectedComponent === 'Hardware' ? '#007bff' : '', color: selectedComponent === 'Hardware' ? 'white' : '' }} 
-                                onClick={() => handleOnClick('Hardware')}
-                            >
-                                Hardware
-                            </button>
-                            <hr />
                             <button 
                                 className='printer-button' 
                                 style={{ backgroundColor: selectedComponent === 'Summary' ? '#007bff' : '', color: selectedComponent === 'Summary' ? 'white' : '' }} 
                                 onClick={() => handleOnClick('Summary')}
                             >
                                 SUMMARY
-                            </button> */}
-                        </div>
-                    </div>
-                </div>
-                {/* Content on the right of the Offcanvas */}
-                <div className="content-right" style={{ marginLeft: "100px", marginTop: "10px", border: '2px solid black', textAlign:'center', color: 'white', backgroundColor:'black'}}>
-                    <h2>ADMIN DASHBOARD </h2>
-                    <h5>DIVISIONAL SITE DETAILS</h5>
-                </div>
+                            </button>
+                            <hr />
+                      </div>
+               
+                  </center>
                 <hr />
-                <div className="content-right" style={{ marginLeft: "100px", marginTop: "10px" }}>
-                    {selectedComponent === 'Branch' && <HardwareMainTable />}
-                    {/* {selectedComponent === 'network' && <NetworkTable />} */}
-                    {selectedComponent === 'VirusGuard' && <HardwareVirusGuard style={{ marginLeft: '0px', marginTop: '10px' }} />}
-                    {selectedComponent === 'Printers' && <HardwarePrinterTable />}
-                    {selectedComponent === 'Others' && <HardwareOther />}
-                 
-                </div>
+                <div className="content-right" style={{ marginTop: "10px" }}>
+                    {selectedComponent === 'Branch' && <HardwareMainTable host={host}/>}
+                    {selectedComponent === 'VirusGuard' && <HardwareVirusGuard host={host} style={{ marginLeft: '0px', marginTop: '10px' }} />}
+                    {selectedComponent === 'Printers' && <HardwarePrinterTable host={host}/>}
+                    {selectedComponent === 'Others' && <HardwareOther host={host}/>}
+                    {selectedComponent === 'Summary' && <HardwareSummaryTable host={host}/>}
             </div>
-            <hr />
+            </div>
+                 <hr />
         </>
     );
 }

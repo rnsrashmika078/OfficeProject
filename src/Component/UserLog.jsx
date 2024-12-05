@@ -4,18 +4,19 @@ import { useNavigate } from 'react-router-dom';
 import { useState ,useEffect } from 'react';
 import Message from './Message';
 
-function AdminLog({host}) {
-    const[adminlogtoken,setadminlogToken] = useState(0);
+function UserLog({host}) {
+    const[userlogtoken,setuserlogtoken] = useState(0);
     useEffect(() => {
-        const storedToken = localStorage.getItem('adminlogtoken');
-        setadminlogToken(storedToken);
+        const storedToken = localStorage.getItem('userlogtoken');
+        setuserlogtoken(storedToken);
     }, []);
+  
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const [isclicked,setisClicked] = useState(false);
+
 
     const handleemailChange = (e) => {
         setEmail(e.target.value);
@@ -27,7 +28,7 @@ function AdminLog({host}) {
     };
 
     const handleSignUpClick = () => {
-        navigate('/admin/createaccount');
+        navigate('/user/createaccount');
     };
 
     const handleLoginClick = async () => {
@@ -36,7 +37,7 @@ function AdminLog({host}) {
             return;
         }
         try {
-            const response = await fetch(`${host}/AdminTables/login.php`, {
+            const response = await fetch(`${host}/UserTable/login.php`, {
            
             method: 'POST',
                 headers: {
@@ -44,16 +45,12 @@ function AdminLog({host}) {
                 },
                 body: JSON.stringify({ email, password }),
             });
-    
             const data = await response.json(); 
-          
-    
             if (data.success) {
-                setadminlogToken(1);
-                localStorage.setItem('adminlogtoken',1);
-                // setisClicked(true);
-                navigate('/admin/dashboard');
-                
+                setuserlogtoken(1);
+                localStorage.setItem('userlogtoken',1);
+               
+                navigate('/users');
             } else {
                 setError(data.message);
             }
@@ -65,27 +62,28 @@ function AdminLog({host}) {
     return (
         <>
              <Message msgbody="You are not logged in"/>
+
             <NavBar header="" subheader=""/>
             <br />
-            {adminlogtoken > 0 && !(localStorage.getItem('userlogtoken') > 0)? (
-            navigate('/admin/dashboard')
+            {userlogtoken> 0 && !(localStorage.getItem('adminlogtoken') > 0) ? (
+            navigate('/users')
             ) : (
-                
+               
                 <div className="container mb-3" style={{ maxWidth: "500px", border: "1px solid black", padding: "20px", borderRadius: "8px"  }}>
                 <form>
-                   <center> <h1 style={{backgroundColor:'blue' , borderRadius:'10px', color:'white'}}>Administration</h1>
-                    <h5 className="">Login Page for Administration.</h5></center>
+                   <center> <h1 style={{backgroundColor:'blue' , borderRadius:'10px', color:'white'}}>User</h1>
+                    <h5 className="">Login Page for Users.</h5></center>
                     <br />
                     <div className="row mb-3">
                         <label htmlFor="inputEmail3" className="col-sm-3 col-form-label">Email</label>
                         <div className="col-sm-9">
-                            <input type="email" className="form-control" value={email} onChange={handleemailChange} placeholder='Enter Admin Email' id="inputEmail3" />
+                            <input type="email" className="form-control" value={email} onChange={handleemailChange} placeholder='Enter User Email' id="inputEmail3" />
                         </div>
                     </div>
                     <div className="row mb-3">
                         <label htmlFor="inputPassword3" className="col-sm-3 col-form-label">Password</label>
                         <div className="col-sm-9">
-                            <input type="password" className="form-control" value={password} onChange={handlepasswordChange} placeholder='Enter Admin password' id="inputPassword3" />
+                            <input type="password" className="form-control" value={password} onChange={handlepasswordChange} placeholder='Enter User password' id="inputPassword3" />
                         </div>
                     </div>
                     <div className="d-flex justify-content-center gap-2">
@@ -97,9 +95,8 @@ function AdminLog({host}) {
                 </form>
             </div>
             )}
-              
         </>
     );
 }
 
-export default AdminLog;
+export default UserLog;

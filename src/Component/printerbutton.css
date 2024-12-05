@@ -1,16 +1,38 @@
 .printer-button {
-    background-color: transparent;
+    background-color: black;
+    border-radius: 10px;
+    margin-left: 20px;
     color:white;
     border: none;
     padding: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: small;
+    
+
   }
-  
-  .printer-button:hover {
-    background-color: #4CAF50; /* Change this to your preferred color */
-    color: white; /* Optional: change text color on hover */
+  .printer-button:hover{
+    background-color: #4CAF50; 
+    color: white; 
   }
   .printer-button:active{
     background-color: #003366; /* Color when the button is clicked */
   }
+  .tables{
+    margin-top: 10px;
+    background-color: black;
+    border-radius: 20px;
+    
+  
+  }
+  .sticky-container {
+    position: sticky;
+    top: 0; /* Adjust as needed */
+    z-index: 1000;
+    background-color: white; /* Ensures it's not transparent */
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional for a shadow effect */
+}
+
+
+    

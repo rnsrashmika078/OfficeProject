@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-const SummaryTable = () => {
-  const host = 'http://localhost';
+const SummaryTable =({host})=> {
+
 
   const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
@@ -204,7 +204,7 @@ const [scannervalues,setscannervalues] = useState({
 
 //server
 useEffect(() => {
-  fetch(`${host}/test/SummaryTable/Custom_Server.php`)    .then((response) => response.json())
+  fetch(`${host}/UserSummaryTable/Custom_Server.php`)    .then((response) => response.json())
     .then((responseData) => {
       const total =
         (Number(responseData.managerServerCount) || 0) +
@@ -247,7 +247,7 @@ useEffect(() => {
    //desktop
    useEffect(() => {
     // Make an API call to the backend to fetch the count data
-    fetch(`${host}/test/SummaryTable/Custom_Desktop.php`)
+    fetch(`${host}/UserSummaryTable/Custom_Desktop.php`)
       .then((response) => response.json()) // Assuming the server returns a JSON response
       .then((responseData) => {
         // Dynamically create the servervaluess state from the received data
@@ -292,7 +292,7 @@ useEffect(() => {
      //laptop
      useEffect(() => {
       // Make an API call to the backend to fetch the count data
-      fetch(`${host}/test/SummaryTable/Custom_Laptop.php`)
+      fetch(`${host}/UserSummaryTable/Custom_Laptop.php`)
         .then((response) => response.json()) // Assuming the server returns a JSON response
         .then((responseData) => {
           // Dynamically create the servervaluess state from the received data
@@ -338,7 +338,7 @@ useEffect(() => {
     //printer
     useEffect(() => {
       // Make an API call to the backend to fetch the count data
-      fetch(`${host}/test/SummaryTable/Custom3_Printer.php`)
+      fetch(`${host}/UserSummaryTable/Custom3_Printer.php`)
         .then((response) => response.json()) // Assuming the server returns a JSON response
         .then((responseData) => {
           // Dynamically create the servervaluess state from the received data
@@ -385,7 +385,7 @@ useEffect(() => {
      //photocopy machine
      useEffect(() => {
       // Make an API call to the backend to fetch the count data
-      fetch(`${host}/test/SummaryTable/Custom4_Photocopy.php`)
+      fetch(`${host}/UserSummaryTable/Custom4_Photocopy.php`)
         .then((response) => response.json()) // Assuming the server returns a JSON response
         .then((responseData) => {
           // Dynamically create the servervaluess state from the received data

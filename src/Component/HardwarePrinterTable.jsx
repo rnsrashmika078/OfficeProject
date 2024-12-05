@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
-const HardwarePrinterTable = () => {
-  const host = 'http://localhost';
+const HardwarePrinterTable = ({host}) => {
+
     const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
@@ -69,7 +69,7 @@ const HardwarePrinterTable = () => {
   
   // Fetch data from the backend on component mount
   useEffect(() => {
-    fetch(`${host}/test/Hardware/PrinterTable/getdata.php`)
+    fetch(`${host}/Hardware/PrinterTable/getdata.php`)
       .then((response) => response.json())
       .then((responseData) => {
         setData(responseData); // Set the fetched data in the state
@@ -86,7 +86,7 @@ const HardwarePrinterTable = () => {
     const printerId = rowData[0]; // Assuming ID is in the first column
     setIsAddButtonDisabled(false);
     // Delete the existing row from the database
-    fetch(`${host}/test/Hardware/PrinterTable/delete.php`, {
+    fetch(`${host}/Hardware/PrinterTable/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -105,7 +105,7 @@ const HardwarePrinterTable = () => {
         };
 
         // Send the updated data to the backend
-        fetch(`${host}/localhost/test/Hardware/PrinterTable/save.php`, {
+        fetch(`${host}/Hardware/PrinterTable/save.php`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -154,7 +154,7 @@ const HardwarePrinterTable = () => {
     const rowData = data[rowIndex];
     const printerId = rowData[0]; // ID should be in the first column
 
-    fetch(`${host}/test/Hardware/PrinterTable/delete.php`, {
+    fetch(`${host}/Hardware/PrinterTable/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

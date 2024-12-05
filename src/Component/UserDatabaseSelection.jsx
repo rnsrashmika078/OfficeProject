@@ -1,14 +1,15 @@
+import Message from "./Message";
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
 
 function UserDatabaseSelection() {
   return (
     <div>
-     <NavBar/>
+             <Message msgbody="You have logged in as User"/>
+
+     <NavBar header="USER"/>
      <center>
-     <div className="content-right" style={{ marginLeft: "0px", marginTop: "10px", border: '2px solid black', textAlign:'center', color: 'white', backgroundColor:'Black'}}>
-                    <h2>USER DASHBOARD </h2>
-                </div>
+    
                 <hr /></center>
       <div className="container text-center mt-5">
         <h1>Welcome to the Office Database</h1>

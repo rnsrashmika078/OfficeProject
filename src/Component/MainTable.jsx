@@ -1,8 +1,8 @@
-import { read } from '@popperjs/core';
+
 import axios from 'axios';
 import { useState, useEffect, useRef } from 'react';
-const MainTable = () => {
-  const host = 'http://localhost';
+const MainTable = ({host}) => {
+
   const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
@@ -16,7 +16,13 @@ const MainTable = () => {
     setSelectedCategory(category);
   };
  
-    
+  useEffect(() => {
+    // Retrieve the token from localStorage or initialize it
+    const storedToken = localStorage.getItem('logintoken');
+    // alert(storedToken);
+    // const initialToken = storedToken ? parseInt(storedToken) : 0;
+    // setloginToken(initialToken);
+}, []);
   const highlightText = (rowIndex,text, searchTerm) => {
     if (!searchTerm) return text;
     const regex = new RegExp(`(${searchTerm})`, 'gi');
@@ -73,11 +79,11 @@ const MainTable = () => {
   // Fetch data from the backend on component mount
   useEffect(() => {
     // Make an API call to the backend to fetch the data
-    fetch(`${host}/test/getdata.php`)
+    fetch(`${host}/getdata.php`)
     // fetch()
       .then((response) => response.json()) // Assuming the server returns a JSON response
       .then((responseData) => {
-        setData(responseData); // Set the fetched data in the state
+        setData(responseData); 
       })
       .catch((error) => console.error('Error fetching data:', error));
   }, []); 
@@ -86,7 +92,7 @@ const MainTable = () => {
     const deviceId = rowData[0]; // ID should be in the first column
     setIsAddButtonDisabled(false);
     // First, delete the existing row from the database
-    fetch(`${host}/test/delete.php`, {
+    fetch(`${host}/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -116,7 +122,7 @@ const MainTable = () => {
         };
 
         // Send the updated data to the backend
-        fetch(`${host}/test/save.php`, {
+        fetch(`${host}/save.php`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -173,7 +179,7 @@ const MainTable = () => {
     const rowData = data[rowIndex];
     const deviceId = rowData[0];
 
-    fetch(`${host}/test/delete.php`, {
+    fetch(`${host}/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -280,32 +286,8 @@ const MainTable = () => {
 
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-        try {
-            const response = await axios.get('./data.json'); // Adjust the path if needed
-            setexternalData(response.data);
-            console.log("Fetched Data:", response.data);
-            
-            // Automatically store fetched data
-            await storeData(response.data);
-            
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
-    };
+  
 
-    const storeData = async (data) => {
-        try {
-            const postResponse = await axios.post(`${host}/test/save`, data);
-            console.log("Data stored successfully:", postResponse.data);
-        } catch (error) {
-            console.error("Error storing data:", error);
-        }
-    };
-
-    fetchData();
-}, []);
   const filechange = (e) => {
     const  value  = e.target.value;
     const file = e.target.type === "file" ? value.split('\\').pop() : null;

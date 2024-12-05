@@ -1,8 +1,8 @@
 
 import { useState, useEffect } from 'react';
 
-const UserMainTableView = () => {
-  const host = 'http://localhost';
+const UserMainTableView = ({host}) => {
+ 
   const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
@@ -27,7 +27,7 @@ const UserMainTableView = () => {
   // Fetch data from the backend on component mount
   useEffect(() => {
     // Make an API call to the backend to fetch the data
-    fetch(`${host}/test/getdata.php`)
+    fetch(`${host}/getdata.php`)
       .then((response) => response.json()) // Assuming the server returns a JSON response
       .then((responseData) => {
         setData(responseData); // Set the fetched data in the state
@@ -47,7 +47,7 @@ const UserMainTableView = () => {
     const deviceId = rowData[0]; // ID should be in the first column
     setIsAddButtonDisabled(false);
     // First, delete the existing row from the database
-    fetch(`http://localhost/test/delete.php`, {
+    fetch(`${host}/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -78,7 +78,7 @@ const UserMainTableView = () => {
           };
 
         // Send the updated data to the backend
-        fetch('http://localhost/test/save.php', {
+        fetch(`${host}/save.php`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -121,7 +121,7 @@ const UserMainTableView = () => {
     const rowData = data[rowIndex];
     const deviceId = rowData[0]; // ID should be in the first column
 
-    fetch(`http://localhost/test/delete.php`, {
+    fetch(`${host}/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

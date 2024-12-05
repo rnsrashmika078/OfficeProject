@@ -11,9 +11,8 @@ import UPSTable from './UPSTable';
 import SummaryTable from './SummaryTable';
 import DatabaseSelection from './DatabaseSelection';
 import RepairTable from './RepairTable';
-import { left } from '@popperjs/core';
 
-const RMOffice = () => {
+const RMOffice = ({host}) => {
     const Navigate = useNavigate();
     
     // State to keep track of the selected component
@@ -29,15 +28,10 @@ const RMOffice = () => {
     }
     return (
         <>
-            <NavBar />
+            <NavBar header="ADMIN DASHBOARD" subheader="RM Office Bandarawela"/>
             <div className="container-fluid">
-                <div className="offcanvas offcanvas-start show" style={{ fontSize:'10px', maxWidth: "100px", border: ".5px solid #ccc", marginTop: "100px", marginBottom: "20px", padding: "5px", borderRadius: "8px", backgroundColor: "black", color: "white" }} tabIndex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-                    <div className="offcanvas-header">
-                        <h5 className="offcanvas-title" id="offcanvasLabel"></h5>
-                    </div>
-                    <div className="offcanvas-body">
-                        <hr />
-                        <div className="tab-content mt-3" id="myTabContent">
+            <center><div style={{display:'flex', width:'100%', padding:'10px'}} className="tables">
+                   <hr />
                             <button 
                                 className='printer-button' 
                                 style={{ backgroundColor: selectedComponent === 'Branch' ? '#007bff' : '', color: selectedComponent === 'Branch' ? 'white' : '' }} 
@@ -87,26 +81,22 @@ const RMOffice = () => {
                                 SUMMARY TABLE
                             </button>
                         </div>
-                    </div>
-                </div>
+                  
+               </center>
                 {/* Content on the right of the Offcanvas */}
-                <div className="content-right" style={{ marginLeft: "100px", marginTop: "10px", border: '2px solid black', textAlign:'center', color: 'white', backgroundColor:'black'}}>
-                    <h2>ADMIN DASHBOARD </h2>
-                    <h5>RM Office Bandarawela</h5>
-                </div>
                 <hr />
-                <div className="content-right" style={{ marginLeft: "100px", marginTop: "10px" }}>
-                    {selectedComponent === 'Branch' && <MainTable />}
-                    {selectedComponent === 'Printers' && <PrinterTable style={{ marginLeft: '0px', marginTop: '10px' }} />}
-                    {selectedComponent === 'UPS' && <UPSTable />}
-                    {selectedComponent === 'Others' && <OtherTable />}
-                    {selectedComponent === 'Summary' && <SummaryTable />}
-                    {selectedComponent === 'repair' && <RepairTable />}
+                <div className="content-right" style={{marginTop: "10px" }}>
+                    {selectedComponent === 'Branch' && <MainTable host={host}/>}
+                    {selectedComponent === 'Printers' && <PrinterTable host={host} style={{ marginLeft: '0px', marginTop: '10px' }} />}
+                    {selectedComponent === 'UPS' && <UPSTable host={host}/>}
+                    {selectedComponent === 'Others' && <OtherTable host={host}/>}
+                    {selectedComponent === 'Summary' && <SummaryTable host={host}/>}
+                    {selectedComponent === 'repair' && <RepairTable host={host}/>}
                     {/* {selectedComponent === null && <DatabaseSelection />} */}
-                    {selectedComponent === 'Hardware' && <OtherTable />} {/* Or another table for Hardware */}
+                    {selectedComponent === 'Hardware' && <OtherTable host={host}/>} {/* Or another table for Hardware */}
                 </div>
-            </div>
             <hr />
+            </div>
         </>
     );
 }

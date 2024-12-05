@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-const UserUPSTableView = () => {
-  const host = 'http://localhost';
+const UserUPSTableView = ({host}) => {
+  
   const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
@@ -19,7 +19,7 @@ const UserUPSTableView = () => {
 
   // Fetch data from the backend on component mount
   useEffect(() => {
-    fetch(`${host}/test/UPSTable/getData.php`)
+    fetch(`${host}/UPSTable/getData.php`)
       .then((response) => response.json())
       .then((responseData) => {
         console.log('Fetched Data:', responseData); // Debug log
@@ -48,7 +48,7 @@ const UserUPSTableView = () => {
     const upsId = rowData[0]; // Assuming ID is in the first column
     setIsAddButtonDisabled(false);
     // Delete the existing row from the database
-    fetch(`http://localhost/test/UPSTable/delete.php`, {
+    fetch(`${host}/UPSTable/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -67,7 +67,7 @@ const UserUPSTableView = () => {
         };
 
         // Send the updated data to the backend
-        fetch('http://localhost/test/UPSTable/save.php', {
+        fetch(`${host}/UPSTable/save.php`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -108,7 +108,7 @@ const UserUPSTableView = () => {
     const rowData = data[rowIndex];
     const upsId = rowData[0]; // ID should be in the first column
 
-    fetch(`http://localhost/test/UPSTable/delete.php`, {
+    fetch(`${host}/UPSTable/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

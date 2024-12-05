@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-const SummaryTable = () => {
-  const host = 'http://localhost';
+const SummaryTable = ({host}) => {
+ 
 
   const [data, setData] = useState([]); // Store the data from the backend
   const [editingRow, setEditingRow] = useState(null);
@@ -204,7 +204,7 @@ const [scannervalues,setscannervalues] = useState({
 
 //server
 useEffect(() => {
-  fetch(`${host}/test/SummaryTable/Custom_Server.php`)
+  fetch(`${host}/SummaryTable/Custom_Server.php`)
     .then((response) => response.json())
     .then((responseData) => {
       const total =
@@ -248,7 +248,7 @@ useEffect(() => {
    //desktop
    useEffect(() => {
     // Make an API call to the backend to fetch the count data
-    fetch(`${host}/test/SummaryTable/Custom_Desktop.php`)
+    fetch(`${host}/SummaryTable/Custom_Desktop.php`)
       .then((response) => response.json()) // Assuming the server returns a JSON response
       .then((responseData) => {
         // Dynamically create the servervaluess state from the received data
@@ -293,7 +293,7 @@ useEffect(() => {
      //laptop
      useEffect(() => {
       // Make an API call to the backend to fetch the count data
-      fetch(`${host}/test/SummaryTable/Custom_Laptop.php`)
+      fetch(`${host}/SummaryTable/Custom_Laptop.php`)
         .then((response) => response.json()) // Assuming the server returns a JSON response
         .then((responseData) => {
           // Dynamically create the servervaluess state from the received data
@@ -339,7 +339,7 @@ useEffect(() => {
     //printer
     useEffect(() => {
       // Make an API call to the backend to fetch the count data
-      fetch(`${host}/test/SummaryTable/Custom3_Printer.php`)
+      fetch(`${host}/SummaryTable/Custom3_Printer.php`)
         .then((response) => response.json()) // Assuming the server returns a JSON response
         .then((responseData) => {
           // Dynamically create the servervaluess state from the received data
@@ -386,7 +386,7 @@ useEffect(() => {
      //photocopy machine
      useEffect(() => {
       // Make an API call to the backend to fetch the count data
-      fetch(`${host}/test/SummaryTable/Custom4_Photocopy.php`)
+      fetch(`${host}/SummaryTable/Custom4_Photocopy.php`)
         .then((response) => response.json()) // Assuming the server returns a JSON response
         .then((responseData) => {
           // Dynamically create the servervaluess state from the received data
@@ -433,7 +433,7 @@ useEffect(() => {
  //line printer
  useEffect(() => {
   // Make an API call to the backend to fetch the count data
-  fetch(`${host}/test/SummaryTable/Custom4_Line.php`)
+  fetch(`${host}/SummaryTable/Custom4_Line.php`)
     .then((response) => response.json()) // Assuming the server returns a JSON response
     .then((responseData) => {
       // Dynamically create the servervaluess state from the received data
@@ -478,7 +478,7 @@ useEffect(() => {
      //fax machine
      useEffect(() => {
       // Make an API call to the backend to fetch the count data
-      fetch(`${host}/test/SummaryTable/Custom4_Fax.php`)
+      fetch(`${host}/SummaryTable/Custom4_Fax.php`)
         .then((response) => response.json()) // Assuming the server returns a JSON response
         .then((responseData) => {
           // Dynamically create the servervaluess state from the received data
@@ -524,7 +524,7 @@ useEffect(() => {
     //tv machine
     useEffect(() => {
       // Make an API call to the backend to fetch the count data
-      fetch(`${host}/test/SummaryTable/Custom4_TV.php`)
+      fetch(`${host}/SummaryTable/Custom4_TV.php`)
         .then((response) => response.json()) // Assuming the server returns a JSON response
         .then((responseData) => {
           // Dynamically create the servervaluess state from the received data
@@ -570,7 +570,7 @@ useEffect(() => {
     //projector machine
     useEffect(() => {
       // Make an API call to the backend to fetch the count data
-      fetch(`${host}/test/SummaryTable/Custom4_Projector.php`)
+      fetch(`${host}/SummaryTable/Custom4_Projector.php`)
         .then((response) => response.json()) // Assuming the server returns a JSON response
         .then((responseData) => {
           // Dynamically create the servervaluess state from the received data
@@ -617,7 +617,7 @@ useEffect(() => {
     //ups machine
     useEffect(() => {
       // Make an API call to the backend to fetch the count data
-      fetch(`${host}/test/SummaryTable/Custom4_UPS.php`)
+      fetch(`${host}/SummaryTable/Custom4_UPS.php`)
         .then((response) => response.json()) // Assuming the server returns a JSON response
         .then((responseData) => {
           // Dynamically create the servervaluess state from the received data
@@ -662,7 +662,7 @@ useEffect(() => {
      //Scanner
      useEffect(() => {
       // Make an API call to the backend to fetch the count data
-      fetch(`${host}/test/SummaryTable/Custom4_Scanner.php`)
+      fetch(`${host}/SummaryTable/Custom4_Scanner.php`)
         .then((response) => response.json()) // Assuming the server returns a JSON response
         .then((responseData) => {
           // Dynamically create the servervaluess state from the received data
@@ -715,7 +715,7 @@ useEffect(() => {
     const deviceId = rowData[0]; // ID should be in the first column
     setIsAddButtonDisabled(false);
     // First, delete the existing row from the database
-    fetch(`${host}/test/SummaryTable/delete.php`, {
+    fetch(`${host}/SummaryTable/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -742,7 +742,7 @@ useEffect(() => {
         };
 
         // Send the updated data to the backend
-        fetch(`${host}/test/SummaryTable/save.php`, {
+        fetch(`${host}/SummaryTable/save.php`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -791,7 +791,7 @@ useEffect(() => {
     const rowData = data[rowIndex];
     const deviceId = rowData[0]; // ID should be in the first column
 
-    fetch(`${host}/test/SummaryTable/delete.php`, {
+    fetch(`${host}/SummaryTable/delete.php`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
