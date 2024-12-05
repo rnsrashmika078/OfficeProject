@@ -11,7 +11,7 @@ function Footer() {
                         <img className='footer-logo' src="./public/wbl.png" alt="Logo" style={{width:'350px', backgroundColor:'white', borderRadius:'10px', padding:'10px'}}/>
                         <h5 className='footer-header'>National Water Supply & Drainage Board</h5>
                         <h5 className='footer-subheader'>Bandarawela</h5>
-                        <p className='footer-version' style={{fontSize:'10px'}}>V4.24</p>
+                        <p className='footer-version' style={{fontSize:'10px'}}>V4.25</p>
                     </div>
 
                     <div className="col-md-4 text-center">

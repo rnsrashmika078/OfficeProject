@@ -24,8 +24,8 @@ function App() {
   // const host = 'http://192.168.43.110'; // change this accordingly
 
    
-  const host = 'http://172.20.10.2/NWSDB';
-  // const host = 'http://localhost/NWSDB';
+  // const host = 'http://172.20.10.2/NWSDB';
+  const host = 'http://localhost/NWSDB';
 
   const [adminCount, setAdminCount] = useState(0); // To store the admin count
   const [userCount, setUserCount] = useState(0); // To store the user count
