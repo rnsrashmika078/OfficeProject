@@ -50,10 +50,10 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage host={host} />} />
         <Route path="/admin" element={<AdminLog host={host} />} />
-        <Route path="/user" element={<UserLog host={host} />} />
+        {/* <Route path="/user" element={<UserLog host={host} />} /> */}
         <Route path="/admin/reset" element={<Reset host={host}/>} />
         <Route path="/admin/createaccount" element={<AdminCreateAccount host={host} />} />
-        <Route path="/user/createaccount" element={<UserCreateAccount host={host} />} />
+        {/* <Route path="/user/createaccount" element={<UserCreateAccount host={host} />} /> */}
         <Route path="/admin/dashboard" element={<AdminDashboard host={host}/>} />
         <Route path="/admin/dashboard/printer" element={<PrinterTable host={host}/>} />
         <Route path="/users" element={<UserDatabaseSelection host={host}/>} />

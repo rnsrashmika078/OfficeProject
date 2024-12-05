@@ -69,20 +69,11 @@ const NavBar = ({header, subheader ,username}) => {
         <div className='' style={{paddingRight:'200px'}}>
             <Link to="/"><button  onClick={()=> handleClick('Home')} className='button'>Home</button></Link>
             <Link to="/About Us"><button  onClick={()=> handleClick('About')} className='button'>About Us</button></Link>
-            {localStorage.getItem('userlogtoken') > 0  ? 
-           (
             <Link to="/admin"></Link>
-           ) :(
             <Link to="/admin"><button  onClick={()=> handleClick('Admin')} className='button'>Administration</button></Link>
-           )} 
-           {localStorage.getItem('adminlogtoken') > 0  ? 
-           (
-            <Link to="/admin"></Link>
-
-           ) :(
-            <Link to="/user"><button  onClick={()=> handleClick('User')} className='button'>User</button></Link>
-           )} 
-            <Link to="/"><button  className='button' onClick={handleClearStorage}>Troubleshoot</button></Link>
+            <Link to="/users"><button  onClick={()=> handleClick('User')} className='button'>User</button></Link>
+          
+          
 
         </div>
 
