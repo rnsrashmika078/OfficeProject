@@ -74,7 +74,7 @@ function App() {
         color:'white',
         fontFamily:'sans-serif',
       }}>
-        Registered Users: {userCount} | Registered Admins : {adminCount}
+        Registered Admins : {adminCount}
       </div>
     <Footer version={version}/>
     </>
