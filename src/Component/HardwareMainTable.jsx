@@ -272,7 +272,7 @@ const Hardware = ({host}) => {
           <select value={cell} onChange={(e) => handleCellChange(rowIndex, colIndex, e.target.value)}>
                <option>Select Option</option>
           <option >Available</option>
-          <option >NOt Available</option>
+          <option >Not Available</option>
         </select>
         ); 
         default:

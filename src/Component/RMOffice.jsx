@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
 import NavBar from './NavBar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MainTable from './MainTable';
 import { useNavigate } from 'react-router-dom';
 import './printerbutton.css';
@@ -21,7 +21,18 @@ const RMOffice = ({host}) => {
     // Function to handle button clicks
     const handleOnClick = (componentName) => {
         setSelectedComponent(componentName);  // Update the state to reflect the active component
+        localStorage.setItem('selectedComponent', componentName); // Save to localStorage
+
     };
+
+    useEffect(() => {
+        // Retrieve the value from localStorage on component mount
+        const savedComponent = localStorage.getItem('selectedComponent');
+        if (savedComponent) {
+            setSelectedComponent(savedComponent);
+        }
+    }, []); // Empty dependency array to run only once
+
    const[ hide , sethide] = useState(false);
     const handleoffcanvas = () =>{
         sethide(!hide);

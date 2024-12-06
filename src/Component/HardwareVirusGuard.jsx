@@ -192,19 +192,19 @@ const HardwareVirusGuard = ({host}) => {
           return (
             <select value={cell} onChange={(e) => handleCellChange(rowIndex, colIndex, e.target.value)}>
                  <option>Select Option</option>
-            <option >Ettampitiya WSS</option>
-            <option >Keppetipola WSS</option>
-            <option >Divithotawela WSS</option>
-            <option >Ambagasdowa WSS</option>
-            <option >Welimada WSS</option>
-            <option >Diyathalawa WSS</option>
-            <option >Bandarawela WSS</option>
-            <option >Makulella WSS</option>
-            <option >Demodara WTP</option>
-            <option >Badulla DE Office</option>
-            <option >Badulla WSS</option>
-            <option >Mahiyanganaya WSS</option>
-            <option >GIRADURU KOTTE WSS</option>
+                 <option >Ettampitiya</option>
+            <option >Keppetipola</option>
+            <option >Divithotawela</option>
+            <option >Ambagasdowa</option>
+            <option >Welimada</option>
+            <option >Diyathalawa</option>
+            <option >Bandarawela</option>
+            <option >Makulella</option>
+            <option >Demodara</option>
+            <option >BadullaDE</option>
+            <option >Badulla</option>
+            <option >Mahiyanganaya</option>
+            <option >GiraduruKotte</option>
           </select>
           
           );
@@ -227,20 +227,21 @@ const HardwareVirusGuard = ({host}) => {
           {'FILTER: ' + selectedCategory  || 'FILTER: ALL'}
           </button>
           <ul className="dropdown-menu">
-          <li><a className="dropdown-item" onClick={() => handleCategorySelect('ALL')}>ALL</a></li>
-            <li><a className="dropdown-item" onClick={() => handleCategorySelect('Ettampitiya WSS')}>Ettampitiya WSS</a></li>
-            <li><a className="dropdown-item" onClick={() => handleCategorySelect('Keppetipola WSS')}>Keppetipola WSS</a></li>
-            <li><a className="dropdown-item" onClick={() => handleCategorySelect('Divithotawela WSS')}>Divithotawela WSS</a></li>
-            <li><a className="dropdown-item" onClick={() => handleCategorySelect('Ambagasdowa WSS')}>Ambagasdowa WSS</a></li>
-            <li><a className="dropdown-item" onClick={() => handleCategorySelect('Welimada WSS')}>Welimada WSS</a></li>
-            <li><a className="dropdown-item" onClick={() => handleCategorySelect('Diyathalawa WSS')}>Diyathalawa WSS</a></li>
-            <li><a className="dropdown-item" onClick={() => handleCategorySelect('Bandarawela WSS')}>Bandarawela WSS</a></li>
-            <li><a className="dropdown-item" onClick={() => handleCategorySelect('Makulella WSS')}>Makulella WSS</a></li>
-            <li><a className="dropdown-item" onClick={() => handleCategorySelect('Demodara WTP')}>Demodara WTP</a></li>
-            <li><a className="dropdown-item" onClick={() => handleCategorySelect('Badulla DE Office')}>Badulla DE Office</a></li>
-            <li><a className="dropdown-item" onClick={() => handleCategorySelect('Badulla WSS')}>Badulla WSS</a></li>
-            <li><a className="dropdown-item" onClick={() => handleCategorySelect('Mahiyanganaya WSS')}>Mahiyanganaya WSS</a></li>
-            <li><a className="dropdown-item" onClick={() => handleCategorySelect('GIRADURU KOTTE WSS')}>GIRADURU KOTTE WSS</a></li>
+     
+  <li><a className="dropdown-item" onClick={() => handleCategorySelect('ALL')}>ALL</a></li>
+  <li><a className="dropdown-item" onClick={() => handleCategorySelect('Ettampitiya')}>Ettampitiya</a></li>
+  <li><a className="dropdown-item" onClick={() => handleCategorySelect('Keppetipola')}>Keppetipola</a></li>
+  <li><a className="dropdown-item" onClick={() => handleCategorySelect('Divithotawela')}>Divithotawela</a></li>
+  <li><a className="dropdown-item" onClick={() => handleCategorySelect('Ambagasdowa')}>Ambagasdowa</a></li>
+  <li><a className="dropdown-item" onClick={() => handleCategorySelect('Welimada')}>Welimada</a></li>
+  <li><a className="dropdown-item" onClick={() => handleCategorySelect('Diyathalawa')}>Diyathalawa</a></li>
+  <li><a className="dropdown-item" onClick={() => handleCategorySelect('Bandarawela')}>Bandarawela</a></li>
+  <li><a className="dropdown-item" onClick={() => handleCategorySelect('Makulella')}>Makulella</a></li>
+  <li><a className="dropdown-item" onClick={() => handleCategorySelect('Demodara')}>Demodara</a></li>
+  <li><a className="dropdown-item" onClick={() => handleCategorySelect('BadullaDE')}>BadullaDE</a></li>
+  <li><a className="dropdown-item" onClick={() => handleCategorySelect('Badulla')}>Badulla</a></li>
+  <li><a className="dropdown-item" onClick={() => handleCategorySelect('Mahiyanganaya')}>Mahiyanganaya</a></li>
+  <li><a className="dropdown-item" onClick={() => handleCategorySelect('GiraduruKotte')}>GiraduruKotte</a></li>
            
           </ul>
           <button onClick={handleAddEmptyRow} disabled={isAddButtonDisabled} className="btn btn-primary" style={{ margin: '5px', marginRight: '100px', padding: '4px 8px', fontSize: '15px' }}>ADD DATA</button>

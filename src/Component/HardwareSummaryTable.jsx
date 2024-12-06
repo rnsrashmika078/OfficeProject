@@ -27,6 +27,7 @@ const HardwareSummaryTable = ({host}) => {
     
     return total;
   };
+ 
   const [error, setError] = useState([]);
 
   const [SummaryCategory, SetSummaryCategory] = useState([]);

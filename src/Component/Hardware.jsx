@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
 import NavBar from './NavBar';
-import { useState } from 'react';
+import { useState ,useEffect } from 'react';
 import MainTable from './MainTable';
 import { useNavigate } from 'react-router-dom';
 import './printerbutton.css';
@@ -25,8 +25,16 @@ const Hardware = ({host}) => {
     // Function to handle button clicks
     const handleOnClick = (componentName) => {
         setSelectedComponent(componentName);  // Update the state to reflect the active component
+        localStorage.setItem('selectedComponenthardware', componentName); // Save to localStorage
+
     };
-   
+    useEffect(() => {
+        // Retrieve the value from localStorage on component mount
+        const savedComponent = localStorage.getItem('selectedComponenthardware');
+        if (savedComponent) {
+            setSelectedComponent(savedComponent);
+        }
+    }, []); // Empty dependency array to run only once
     return (
         <>
             <NavBar header="ADMIN DASHBOARD" subheader="Divisional Site Details"/>

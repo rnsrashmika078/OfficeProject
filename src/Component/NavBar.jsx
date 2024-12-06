@@ -7,6 +7,8 @@ import Message from './Message';
 
 const NavBar = ({header, subheader ,username}) => {
 
+
+
   const [show, setShow] = useState(true);
 
   const [newusername,setnewUsername] = useState('');
@@ -37,9 +39,14 @@ const NavBar = ({header, subheader ,username}) => {
     
 
   };
-
+  
   const handleLoginClick = () => {
   
+  }
+
+  
+  const handleFix = () => {
+    localStorage.clear();
   }
 
 
@@ -72,6 +79,8 @@ const NavBar = ({header, subheader ,username}) => {
             <Link to="/admin"></Link>
             <Link to="/admin"><button  onClick={()=> handleClick('Admin')} className='button'>Administration</button></Link>
             <Link to="/users"><button  onClick={()=> handleClick('User')} className='button'>User</button></Link>
+            <Link to="/"><button  onClick={()=> handleFix()} className='button'>Fix</button></Link>
+
           
           
 
@@ -102,7 +111,7 @@ const NavBar = ({header, subheader ,username}) => {
               </ul>
             </div>
           ) : (
-            <Link to="/">
+            <Link to="/admin">
               <button onClick={handleLoginClick} className="btn btn-primary">Login | Sign</button>
             </Link>
           )}

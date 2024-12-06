@@ -292,6 +292,7 @@ useEffect(() => {
 
      //laptop
      useEffect(() => {
+      console.log(host)
       // Make an API call to the backend to fetch the count data
       fetch(`${host}/SummaryTable/Custom_Laptop.php`)
         .then((response) => response.json()) // Assuming the server returns a JSON response
@@ -332,7 +333,7 @@ useEffect(() => {
         })
         .catch((error) => {
           console.error('Error fetching data:', error);
-          setError('Error fetching data'); // Optionally, set an error message
+          setError('Error fetching data in Laptop section'); // Optionally, set an error message
         });
     }, []);
 
