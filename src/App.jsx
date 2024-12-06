@@ -75,7 +75,6 @@ function App() {
         fontFamily:'sans-serif',
       }}>
         Registered Admins : {adminCount}
-        SUCK MAR DICK
       </div>
     <Footer version={version}/>
     </>
