@@ -21,11 +21,12 @@ import { useEffect, useState } from 'react';
 
 
 function App() {
-  const host = 'http://192.168.43.110/NWSDB';
-  // const host = 'http://localhost/NWSDB'; 
-  // const host = 'http://10.84.0.101/NWSDB';
+  // const host = 'http://192.168.43.110/NWSDB';
+  const host = 'http://10.84.0.101/NWSDB';
+  // let host = newhost || 'http://localhost/NWSDB';
 
-  const version="V5.3";
+
+  const version="V5.4";
 
   const [adminCount, setAdminCount] = useState(0); // To store the admin count
   const [userCount, setUserCount] = useState(0); // To store the user count
