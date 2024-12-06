@@ -25,7 +25,7 @@ function App() {
   // const host = 'http://localhost/NWSDB'; 
   // const host = 'http://10.84.0.101/NWSDB';
 
-  const version="V5.25";
+  const version="V5.3";
 
   const [adminCount, setAdminCount] = useState(0); // To store the admin count
   const [userCount, setUserCount] = useState(0); // To store the user count
@@ -75,6 +75,7 @@ function App() {
         fontFamily:'sans-serif',
       }}>
         Registered Admins : {adminCount}
+        SUCK MAR DICK
       </div>
     <Footer version={version}/>
     </>
