@@ -21,13 +21,13 @@ const RMOffice = ({host}) => {
     // Function to handle button clicks
     const handleOnClick = (componentName) => {
         setSelectedComponent(componentName);  // Update the state to reflect the active component
-        localStorage.setItem('selectedComponent', componentName); // Save to localStorage
+        localStorage.setItem('rmioffice', componentName); // Save to localStorage
 
     };
 
     useEffect(() => {
         // Retrieve the value from localStorage on component mount
-        const savedComponent = localStorage.getItem('selectedComponent');
+        const savedComponent = localStorage.getItem('rmioffice');
         if (savedComponent) {
             setSelectedComponent(savedComponent);
         }

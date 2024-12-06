@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './footer.css';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
-function Footer() {
+function Footer({version}) {
     return (
         <footer className="footer-container sticky">
             <div className="container">
@@ -11,7 +11,7 @@ function Footer() {
                         <img className='footer-logo' src="./public/wbl.png" alt="Logo" style={{width:'350px', backgroundColor:'white', borderRadius:'10px', padding:'10px'}}/>
                         <h5 className='footer-header'>National Water Supply & Drainage Board</h5>
                         <h5 className='footer-subheader'>Bandarawela</h5>
-                        <p className='footer-version' style={{fontSize:'10px'}}>V5.1</p>
+                        <p className='footer-version' style={{fontSize:'10px'}}>{version}</p>
                     </div>
 
                     <div className="col-md-4 text-center">

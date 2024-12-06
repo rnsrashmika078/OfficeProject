@@ -25,12 +25,12 @@ const Hardware = ({host}) => {
     // Function to handle button clicks
     const handleOnClick = (componentName) => {
         setSelectedComponent(componentName);  // Update the state to reflect the active component
-        localStorage.setItem('selectedComponenthardware', componentName); // Save to localStorage
+        localStorage.setItem('divisional', componentName); // Save to localStorage
 
     };
     useEffect(() => {
         // Retrieve the value from localStorage on component mount
-        const savedComponent = localStorage.getItem('selectedComponenthardware');
+        const savedComponent = localStorage.getItem('divisional');
         if (savedComponent) {
             setSelectedComponent(savedComponent);
         }

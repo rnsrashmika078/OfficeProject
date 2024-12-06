@@ -5,7 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base : "/NWSDB/react/",
-  
+  build: {
+    outDir: 'C:/xampp/htdocs/NWSDB/react', // Use forward slashes for the path
+},
   server: {
     // base: '/test/react/',
     // port : 5173,

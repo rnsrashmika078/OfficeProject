@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
 import NavBar from './NavBar';
-import { useState } from 'react';
+import { useEffect,  useState } from 'react';
 import MainTable from './MainTable';
 import { useNavigate } from 'react-router-dom';
 import './printerbutton.css';
@@ -26,8 +26,17 @@ const UserRMOffice = ({host}) => {
     // Function to handle button clicks
     const handleOnClick = (componentName) => {
         setSelectedComponent(componentName);  // Update the state to reflect the active component
+        localStorage.getItem('userrmioffice',componentName);
     };
    
+    useEffect(() => {
+        // Retrieve the value from localStorage on component mount
+        const savedComponent = localStorage.getItem('userrmioffice');
+        if (savedComponent) {
+            setSelectedComponent(savedComponent);
+        }
+    }, []); // Empty dependency array to run only once
+
     return (
         <>
             <NavBar header="USER DASHBOARD" subheader="Rm Office Bandarawela"/>
