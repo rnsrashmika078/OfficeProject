@@ -25,7 +25,7 @@ function App() {
 
    
   // const host = 'http://172.20.10.2/NWSDB';
-  const host = 'http://localhost/NWSDB';
+  const host = 'http://10.84.0.101/NWSDB';
 
   const [adminCount, setAdminCount] = useState(0); // To store the admin count
   const [userCount, setUserCount] = useState(0); // To store the user count
