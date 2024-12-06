@@ -21,7 +21,7 @@ function HomePage() {
             </Link>
           
           
-              <Link to="/user">
+              <Link to="/users">
               <button className="btn btn-secondary btn-lg">USER</button>
             </Link>
          
